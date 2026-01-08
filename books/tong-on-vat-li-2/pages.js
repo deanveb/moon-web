@@ -7,14 +7,14 @@ async function displayContent()
   
   const response = await fetch(`data/dap-an/${lessonName}.json`);
   if (!response.ok) {
-    console.log('out!');
+    // console.log('out!');
 
     // TODO: put a things on checklist https://www.checklist.design/website/404 here
     document.body.innerHTML = "not found";
     return
   }
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
 
   const questionList = document.getElementById('question-list');
 
@@ -32,6 +32,7 @@ async function displayContent()
     } else {
       info.innerHTML = `Câu ${question['order']}:`;
       questionLi.appendChild(info);
+      document.getElementById('search-bar').style.display = 'None'
     }
 
     // Question's content (includes the question text and choices)
