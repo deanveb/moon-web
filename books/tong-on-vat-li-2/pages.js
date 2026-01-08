@@ -1,5 +1,6 @@
 async function displayContent()
 {
+  // Initialize question
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const lessonName = urlParams.get('name');
@@ -57,8 +58,17 @@ async function displayContent()
 
     questionLi.appendChild(answer);
     questionList.appendChild(questionLi);
-  });
-
+  })
+  // Initialize content table
+  const contentTable = document.getElementById('content-table');
+  const questions = document.getElementsByClassName('question');
+  for (let i = 0; i < questions.length; i++) {
+    const link = document.createElement('a');
+    link.className = 'question-link';
+    link.href = `#${questions.item(i).id}`;
+    link.innerHTML = i+1;
+    contentTable.appendChild(link);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', (e) => {
@@ -66,7 +76,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   const searchBar = document.getElementById('search-bar');
   searchBar.addEventListener('input', (e) => {
     const questions = document.getElementsByClassName('question');
-    console.log(e.currentTarget.value);
+    // console.log(e.currentTarget.value);
     
     for (let i = 0; i < questions.length; i++) {
       if (questions.item(i).id.includes(e.currentTarget.value)) {
