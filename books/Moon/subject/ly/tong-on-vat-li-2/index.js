@@ -24,7 +24,7 @@ async function displayContent() {
     // this feel wrong
     newLesson.id = lesson['name'];
     const link = document.createElement('a');
-    link.href = `pages.html?name=${lesson['name']}`;
+    link.href = `pages/pages.html?name=${lesson['name']}`;
     link.innerHTML = lesson['name'];
     newLesson.appendChild(link);
     list.appendChild(newLesson);

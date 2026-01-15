@@ -5,7 +5,7 @@ async function displayContent()
   const urlParams = new URLSearchParams(queryString);
   const lessonName = urlParams.get('name');
   
-  const response = await fetch(`data/dap-an/${lessonName}.json`);
+  const response = await fetch(`../data/dap-an/${lessonName}.json`);
   if (!response.ok) {
     // console.log('out!');
 
