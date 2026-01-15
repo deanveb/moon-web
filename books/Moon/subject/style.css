@@ -1,0 +1,79 @@
+body {
+  background-color: lightblue;
+  background-image: url("../../../background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: "Paytone One", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+@media screen and (max-width:768px) {
+  #main-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width:992px) {
+  #main-title {
+    font-size: 4rem;
+  }
+}
+
+.subject-container {
+  width: 35vw;
+}
+
+.subject-list {
+  width: 70vw;
+  height: 100vh;
+}
+
+.book-list {
+  list-style-type: disc;
+}
+
+.subject-header {
+  font-size: 1.75rem;
+
+  background-color: #a1cbff;
+  border-radius: 6px;
+  padding: 5px 6px 5px 10px;
+  margin-bottom: 0px;
+
+  /* FIXME: Change round corner when drop down using js */
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.book-list {
+  background-color: #fefcf9;
+
+  /* FIXME: Change round corner when drop down using js */
+  border-radius: 6px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+
+  padding: 10px 20px 10px 40px;
+}
+
+.book-link {
+  font-size: 1.25rem;
+}

@@ -74,9 +74,9 @@ body {
 #welcome-text-float {
   font-size: 16px;
   font-family: "Lobster";
-  transform: rotate(-2deg);
   /* Can be moved to the left a bit */
   margin: 2vh 0px 15vh 0px;
+  transform: translate(-15vw, 0px) rotate(-3deg);
 }
 
 /* FIXME: margin is a bit too much */
