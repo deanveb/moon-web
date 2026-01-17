@@ -15,12 +15,12 @@ body {
   font-family: "Paytone One";
 }
 
-#platform-container>h1 {
+#platform-header {
   font-size: 2rem;
 }
 
 /* FIXME: grid is not working */
-#platform-container>ul {
+#platform-list {
   list-style-type: none;
   display: grid;
   /* grid-template-columns: repeat(auto-fit, 4ch); */
@@ -33,41 +33,47 @@ body {
 }
 
 @media screen and (min-width:1000px) {
-  #platform-container>ul>li>a {
+  .link {
     font-size: 2rem;
   }
 
-  #platform-container>ul {
+  #platform-list {
     gap: 20ch 10ch;
   }
 }
 
 @media screen and (max-width:999px) {
-  #platform-container>ul>li>a {
+  .link {
     font-size: 1.5rem;
   }
 
-  #platform-container>ul {
+  #platform-list {
     gap: 6ch 5ch;
   }
 }
 
-#platform-container>ul>li {
+.platform-element {
   height: fit-content;
   width: fit-content;
 }
 
-#platform-container>ul>li>a {
-  background-image: url("../white-overlay.png"), url("../border-image.png");
+.link-container {
+  background-image: url('/border-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding: 2ch 1ch 2ch 1ch;
+}
+
+.link {
+  background-color: rgba(255, 255, 255, 0.5);
   /* FIXME: size need to be fix */
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
 
   /* width: fit-content; */
   /* height: fit-content; */
 
-  padding: 2ch 2ch 2ch 2ch;
-  border-radius: 10px;
+  padding: 0.5ch 1ch 0.5ch 1ch;
+  border-radius: 25px;
 
   color: black;
   text-decoration: none;

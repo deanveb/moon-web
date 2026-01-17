@@ -88,3 +88,12 @@ img {
   /* justify-content: left; */
   /* flex-direction: column; */
 }
+
+.long-answer {
+  display: none;
+}
+
+.toggle-btn {
+  background-color: w;
+
+}

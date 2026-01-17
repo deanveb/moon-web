@@ -17,6 +17,8 @@ async function displayContent() {
 
   // Load the title
   document.title = lessonName;
+  // TODO: add content table
+
 
   const questionList = document.getElementById('question-list');
 
@@ -62,16 +64,23 @@ async function displayContent() {
 
     // Question's answer (includes short and long answer)
     const answer = document.createElement('div');
-    answer.className = 'answer';
 
-    // const shortAnswer = document.createElement('p');
-    // shortAnswer.className = 'short-answer';
-    // shortAnswer.innerHTML = question['key'];
-    // answer.appendChild(shortAnswer);
+    // Create a toggle button
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = `${question['questionId']}-btn`
+    toggleBtn.className = "toggle-btn";
+    toggleBtn.innerHTML = "Đáp án";
+    toggleBtn.onclick = () => {
+      $(`#${question['questionId']}-question`).toggle();
+    };
+
+    answer.className = 'answer';
 
     const longAnswer = document.createElement('div');
     longAnswer.className = 'long-answer';
+    longAnswer.id = `${question['questionId']}-question`;
     longAnswer.innerHTML = question['answer'];
+    answer.appendChild(toggleBtn);
     answer.appendChild(longAnswer);
 
     content.appendChild(answer);
@@ -91,7 +100,7 @@ async function displayContent() {
   // }
 }
 
-document.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', () => {
   displayContent();
   const searchBar = document.getElementById('search-bar');
   searchBar.addEventListener('input', (e) => {

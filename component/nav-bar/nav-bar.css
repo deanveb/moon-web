@@ -1,11 +1,13 @@
 #nav {
   display: grid;
+  grid-template-columns: repeat(2, auto);
 
   background-color: white;
-  border-radius: 15px;
+  border-radius: 100px;
   height: auto;
 
   padding: 15px 10px 2px 15px;
+  margin: 3vh 5vw 1vh 5vw;
 }
 
 /* 2 type for mobile and desktop */
@@ -31,7 +33,9 @@
 
 .nav-btn {
   color: black;
-  border-radius: 15px;
+  /* border: 2px grey solid; */
+  border-radius: 10px;
+  box-shadow: 4px 4px lavender;
 
   text-decoration: none;
   font-family: "Open Sauce", sans-serif;
