@@ -1,0 +1,54 @@
+#nav {
+  display: grid;
+
+  background-color: white;
+  border-radius: 15px;
+  height: auto;
+
+  padding: 15px 10px 2px 15px;
+}
+
+/* 2 type for mobile and desktop */
+
+@media screen and (min-width: 992px) {
+  #nav {
+    grid-template-columns: repeat(2, auto);
+
+  }
+}
+
+@media screen and (max-width: 768px) {}
+
+#left-side {
+  display: flex;
+  justify-content: left;
+}
+
+#right-side {
+  display: flex;
+  justify-content: right;
+}
+
+.nav-btn {
+  color: black;
+  border-radius: 15px;
+
+  text-decoration: none;
+  font-family: "Open Sauce", sans-serif;
+  font-size: 25px;
+
+  padding: 2px;
+}
+
+.nav-btn:hover {
+  background-color: #ded9da;
+}
+
+/* FIXME: the size is wrong */
+#logo {
+  max-width: 100px;
+  max-height: 100px;
+
+  width: inherit;
+  height: inherit;
+}
