@@ -2,7 +2,7 @@
 body {
   display: grid;
   background-color: lightblue;
-  grid-template-rows: 5vh 85vh 10vh;
+  grid-template-rows: 15vh 75vh 10vh;
   background-image: url("./background.png");
   background-repeat: no-repeat;
   background-size: cover;
