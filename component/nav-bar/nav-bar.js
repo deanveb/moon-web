@@ -1,4 +1,4 @@
-import { inherit } from "utils/inheritance.js";
+import { inherit } from "../../utils/inheritance";
 
 function render() {
   inherit("component/nav-bar/nav-bar.html", "component/nav-bar/nav-bar.css", "nav-bar");
