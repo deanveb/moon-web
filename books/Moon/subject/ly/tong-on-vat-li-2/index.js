@@ -1,7 +1,7 @@
 async function displayContent() {
   const list = document.getElementById('lessons-list')
-  const BASE = window.location.pathname.split('/')[1];
-  const response = await fetch(`/${BASE}/books/Moon/subject/ly/tong-on-vat-li-2/data/ds-bai-hoc/lessons.json`);
+  const BASE = url.substring(0, url.lastIndexOf('/'));
+  const response = await fetch(`/${BASE}/data/ds-bai-hoc/lessons.json`);
   const data = await response.json();
   // TODO: improve the sorting algorithm to be sorted according to lessons order
   data.sort((a, b) => {
@@ -25,7 +25,7 @@ async function displayContent() {
     // this feel wrong
     newLesson.id = lesson['name'];
     const link = document.createElement('a');
-    link.href = `/${BASE}/books/Moon/subject/ly/tong-on-vat-li-2/pages/pages.html?name=${lesson['name']}`;
+    link.href = `/${BASE}/pages/pages.html?name=${lesson['name']}`;
     link.innerHTML = lesson['name'];
     newLesson.appendChild(link);
     list.appendChild(newLesson);
