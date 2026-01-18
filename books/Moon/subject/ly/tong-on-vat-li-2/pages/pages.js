@@ -4,7 +4,8 @@ async function displayContent() {
   const urlParams = new URLSearchParams(queryString);
   const lessonName = urlParams.get('name');
 
-  const response = await fetch(`../data/dap-an/${lessonName}.json`);
+  const BASE = window.location.pathname.split('/')[1];
+  const response = await fetch(`${BASE}/books/Moon/subject/ly/tong-on-vat-li-2/data/dap-an/${lessonName}.json`);
   if (!response.ok) {
     // console.log('out!');
 

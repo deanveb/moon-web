@@ -1,6 +1,7 @@
 async function displayContent() {
   const list = document.getElementById('lessons-list')
-  const response = await fetch("./data/ds-bai-hoc/lessons.json");
+  const BASE = window.location.pathname.split('/')[1];
+  const response = await fetch(`/${BASE}/books/Moon/subject/ly/tong-on-vat-li-2/data/ds-bai-hoc/lessons.json`);
   const data = await response.json();
   // TODO: improve the sorting algorithm to be sorted according to lessons order
   data.sort((a, b) => {
