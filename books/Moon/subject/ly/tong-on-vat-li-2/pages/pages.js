@@ -8,7 +8,9 @@ async function displayContent() {
 
 
   const url = window.location.href;
-  const BASE = url.substring(0, url.lastIndexOf('/'));
+  // Go back once
+  const lastSlash = url.substring(0, url.lastIndexOf('/'));
+  const BASE = url.lastIndexOf('/', lastSlash);
 
   const response = await fetch(`${BASE}/data/dap-an/${lessonName}.json`);
   if (!response.ok) {
