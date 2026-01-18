@@ -2,12 +2,14 @@ async function displayContent() {
   // Initialize question
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const lessonName = urlParams.get('name');
+  let lessonName = urlParams.get('name');
+  document.getElementById("main-title").innerHTML = lessonName;
+  lessonName.replaceAll(" ", "\\ ");
+
 
   const url = window.location.href;
   const BASE = url.substring(0, url.lastIndexOf('/'));
 
-  console.log("${BASE}/data/dap-an/${lessonName}.json");
   const response = await fetch(`${BASE}/data/dap-an/${lessonName}.json`);
   if (!response.ok) {
     // console.log('out!');
