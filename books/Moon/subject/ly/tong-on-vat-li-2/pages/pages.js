@@ -4,7 +4,7 @@ async function displayContent() {
   const urlParams = new URLSearchParams(queryString);
   const lessonName = urlParams.get('name');
 
-  const url = window.location.pathname;
+  const url = window.location.href;
   const BASE = url.substring(0, url.lastIndexOf('/'));
 
   const response = await fetch(`${BASE}/data/dap-an/${lessonName}.json`);
