@@ -1,3 +1,7 @@
+const url = window.location.href;
+// Go back once
+const BASE = url.substring(0, url.lastIndexOf('/'));
+const BASEP = url.substring(0, BASE.lastIndexOf('/'));
 async function displayContent() {
   // Initialize question
   const queryString = window.location.search;
@@ -6,10 +10,6 @@ async function displayContent() {
   document.getElementById("main-title").innerHTML = lessonName;
   lessonName.replaceAll(" ", "\\ ");
 
-  const url = window.location.href;
-  // Go back once
-  const BASE = url.substring(0, url.lastIndexOf('/'));
-  const BASEP = url.substring(0, BASE.lastIndexOf('/'));
 
   const response = await fetch(`${BASEP}/data/dap-an/${lessonName}.json`);
   if (!response.ok) {
@@ -32,7 +32,8 @@ async function displayContent() {
     section['listQuestion'].forEach(question => {
       // TODO: add content table
       const headerLink = document.createElement('a');
-      headerLink.href = `${url}#${question['questionId']}`;
+      // FIXME: unusable after reload
+      headerLink.href = `${(url.lastIndexOf('#') == -1) ? url : url.substring(0, url.lastIndexOf('#'))}#${question['questionId']}`;
       headerLink.className = 'header-link';
       headerLink.id = `${question['questionId']}-link`;
       headerLink.innerHTML = `${question['order']}${question['key']}`;
@@ -104,6 +105,7 @@ async function displayContent() {
       questionLi.appendChild(content);
       questionList.appendChild(questionLi);
     })
+    document.getElementById('content-table').append(document.createElement('br'));
   })
   // // Initialize content table
   // const contentTable = document.getElementById('content-table');
@@ -132,4 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-})
+  // const upBtn = document.getElementById('up-btn');
+  // const upLink = document.createElement('a');
+  // upLink.id = 'up-link';
+  // upLink.href = `${url}#nav-bar`;
+  // upLink.innerHTML = "^";
+  // upBtn.append(upLink);
+  const upLink = document.getElementById('up-link');
+  console.log((url.lastIndexOf('#') == -1) ? url : url.substring(0, url.lastIndexOf('#')));
+  console.log(url.lastIndexOf('#'));
+  upLink.href = `${(url.lastIndexOf('#') == -1) ? url : url.substring(0, url.lastIndexOf('#'))}#nav-bar`;
+});
