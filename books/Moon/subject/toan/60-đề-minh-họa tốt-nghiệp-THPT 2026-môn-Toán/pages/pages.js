@@ -3,6 +3,7 @@ const url = window.location.href;
 const BASE = url.substring(0, url.lastIndexOf('/'));
 const BASEP = url.substring(0, BASE.lastIndexOf('/'));
 async function displayContent() {
+
   // Initialize question
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -117,12 +118,19 @@ async function displayContent() {
   //   link.innerHTML = i + 1;
   //   contentTable.appendChild(link);
   // }
+  const images = document.querySelectorAll('.content img');
+  console.log(images);
+  images.forEach((image) => {
+    if (image.style.verticalAlign == "middle") {
+      image.className = 'mathNotation';
+    } else {
+      image.className = 'mathImage'
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   displayContent();
-  const images = document.getElementsByTagName('img');
-  console.log(images);
   const searchBar = document.getElementById('search-bar');
   searchBar.addEventListener('input', (e) => {
     const questions = document.getElementsByClassName('question');
@@ -164,20 +172,23 @@ function resizeImage() {
 }
 
 
-// document.onload = () => {
-//   // const images = document.querySelectorAll('img');
-//   console.log('hi');
-//   const images = document.getElementsByTagName('img');
-//   console.log(images);
-//   images.forEach((image) => {
-//     if (image.id) {
-//       return;
-//     }
-//     if (image.offsetHeight > 100) {
-//       image.className = "mathNotation";
-//     }
-//     else {
-//       image.className = "mathImage";
-//     }
-//   });
-// };
+document.onload = () => {
+  // const images = document.querySelectorAll('img');
+  console.log('hi');
+  const images = document.getElementsByTagName('img');
+  console.log(images);
+  images.forEach((image) => {
+    if (image.id) {
+      return;
+    }
+    if (image.offsetHeight > 100) {
+      image.className = "mathNotation";
+    }
+    else {
+      image.className = "mathImage";
+    }
+  });
+};
+document.addEventListener('load', () => {
+  console.log('hi');
+})
