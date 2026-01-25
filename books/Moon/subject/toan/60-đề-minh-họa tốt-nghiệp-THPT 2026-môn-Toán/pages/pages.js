@@ -121,6 +121,8 @@ async function displayContent() {
 
 document.addEventListener('DOMContentLoaded', () => {
   displayContent();
+  const images = document.getElementsByTagName('img');
+  console.log(images);
   const searchBar = document.getElementById('search-bar');
   searchBar.addEventListener('input', (e) => {
     const questions = document.getElementsByClassName('question');
@@ -134,14 +136,48 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-  // const upBtn = document.getElementById('up-btn');
-  // const upLink = document.createElement('a');
-  // upLink.id = 'up-link';
-  // upLink.href = `${url}#nav-bar`;
-  // upLink.innerHTML = "^";
-  // upBtn.append(upLink);
   const upLink = document.getElementById('up-link');
   console.log((url.lastIndexOf('#') == -1) ? url : url.substring(0, url.lastIndexOf('#')));
   console.log(url.lastIndexOf('#'));
   upLink.href = `${(url.lastIndexOf('#') == -1) ? url : url.substring(0, url.lastIndexOf('#'))}#nav-bar`;
 });
+
+function resizeImage() {
+  console.log('hi');
+  const images = document.getElementsByTagName('img');
+  console.log(images[1]);
+  if (!images) {
+    return;
+  }
+
+  images.forEach((image) => {
+    if (!image.id) {
+      console.log(wow);
+      if (image.offsetHeight > 100) {
+        image.className = "mathNotation";
+      }
+      else {
+        image.className = "mathImage";
+      }
+    }
+  });
+}
+
+
+// document.onload = () => {
+//   // const images = document.querySelectorAll('img');
+//   console.log('hi');
+//   const images = document.getElementsByTagName('img');
+//   console.log(images);
+//   images.forEach((image) => {
+//     if (image.id) {
+//       return;
+//     }
+//     if (image.offsetHeight > 100) {
+//       image.className = "mathNotation";
+//     }
+//     else {
+//       image.className = "mathImage";
+//     }
+//   });
+// };
